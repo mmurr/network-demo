@@ -1,0 +1,9 @@
+<div id="outer" class="ui-outer">
+  <div class="ui-left">
+    <app-search [nodes]="this.searchResults" [sd]="this.sd"(networkTermsChanged)="onNetworkTermsChanged($event)" (newTargetNode)="onTargetNodeChange($event)" (searchTermsChange)="onSearchTermsChanged($event)"></app-search>
+  </div>
+  <div class="divider-line"></div>
+  <div class="ui-right">
+    <app-network-graph [graph]="this.subgraph" (targetNodeClick)="onTargetNodeChange($event)" ></app-network-graph>
+  </div>
+</div>

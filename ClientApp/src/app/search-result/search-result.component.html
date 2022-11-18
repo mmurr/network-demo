@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-card-title class='search-result-title'>{{this.val.id.toLocaleUpperCase()}}</mat-card-title>
+  <mat-card-subtitle>{{this.val.id}}</mat-card-subtitle>
+  <mat-card-content>
+    General description, this phenotype is a {{this.val.category}}
+    <br/>
+    <button mat-stroked-button color="primary" (click)="onFocusClick($event)" style="font-size: smaller;">focus</button>
+  </mat-card-content>
+</mat-card>

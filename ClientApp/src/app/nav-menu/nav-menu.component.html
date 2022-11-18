@@ -1,0 +1,33 @@
+<header style="background-color: currentColor;">
+  <nav
+    class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3"
+  >
+    <div class="container">
+      <a class="navbar-brand">cipher_demo</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target=".navbar-collapse"
+        aria-label="Toggle navigation"
+        [attr.aria-expanded]="isExpanded"
+        (click)="toggle()"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse d-sm-inline-flex justify-content-end">
+        <ul class="navbar-nav flex-grow">
+          <li class="nav-item">
+            <span class="nav-link text-dark">Home</span>
+          </li>
+          <li >
+            <span class="nav-link text-dark">Network</span>
+          </li>
+          <li >
+            <span class="nav-link text-dark">Library</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

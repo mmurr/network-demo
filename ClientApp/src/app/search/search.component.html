@@ -1,0 +1,8 @@
+<div class="ui-outer">
+  <div class="ui-left">
+    <app-search-terms (searchTermsChanged)="this.onSearchTermsChanged($event)" (networkTermsChanged)="this.onNetworkTermsChanged($event)" [sd]="sd" (targetNodeChanged)="this.onNewTargetNode($event)"></app-search-terms>
+  </div>
+  <div class="ui-right">
+    <app-search-results [resultNodes]="this.matchingNodes" (newTargetNode)="this.onNewTargetNode($event)"></app-search-results>
+  </div>
+</div>

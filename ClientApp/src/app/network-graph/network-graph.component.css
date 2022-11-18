@@ -1,0 +1,12 @@
+svg {
+  flex-basis: 100%;
+}
+.links line {
+  stroke: #aaa;
+}
+.nodes circle {
+  pointer-events: all;
+}
+.nodes circle:hover{
+  color:dodgerblue;
+}

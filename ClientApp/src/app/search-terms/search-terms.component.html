@@ -1,0 +1,76 @@
+<mat-card class="search-card">
+  <mat-card-title>Search</mat-card-title>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Search Terms</mat-label>
+      <input matInput type="text" [(ngModel)]="searchText" (input)="onSearchClick()">
+      <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <br/>
+
+    <button mat-stroked-button color="primary" (click)="onSearchClick()">Search</button>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="search-card">
+  <mat-card-title>Network Filter</mat-card-title>
+  <mat-card-content>
+
+    <mat-form-field>
+      <!-- The final version of this needs the full list and autocomplete, I didn't have time to get it working -->
+      <mat-label>Search Node Variants</mat-label>
+      <input matInput type="text" [(ngModel)]="targetVariants" (input)="onNetworkFilterChanged()">
+      <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <!-- The final version of this needs the full list and autocomplete, I didn't have time to get it working -->
+      <mat-label>Search Edge Variants</mat-label>
+      <input matInput type="text" [(ngModel)]="targetSharedVariants" (input)="onNetworkFilterChanged()">
+      <button mat-button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <br/>
+    <mat-form-field>
+      <!-- The final version of this needs the full list and autocomplete, I didn't have time to get it working -->
+      <mat-label>Search Communities</mat-label>
+      <input matInput type="text" [(ngModel)]="targetCommunities" (input)="onNetworkFilterChanged()">
+      <button mat-button *ngIf="targetCommunities" matSuffix mat-icon-button aria-label="Clear" (click)="searchText=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <br/>
+    <button mat-stroked-button color="primary" (click)="onNetworkFilterChanged()" style="margin-bottom: 5px;">Apply Variant/Community Filter</button>
+
+    <br/>
+    <mat-checkbox [(ngModel)]="sigComms" (change)="onNetworkFilterChanged()">Only Significant Communities</mat-checkbox>
+    <br/>
+    <mat-label>Minimum Edge Q value</mat-label>
+    <mat-slider min="0" max=".05" step="0.01" [(ngModel)]="q_val" tickInterval=".01" (change)="onNetworkFilterChanged()"></mat-slider>
+    <br/>
+    <!-- <mat-label>Minimum Node Degrees</mat-label>
+    <mat-slider min="0" max="100" step="5" [(ngModel)]="q_val" tickInterval="10" (change)="onNetworkFilterChanged()"></mat-slider>
+    <br/> -->
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="sd.focusedNodeID && sd.focusedNodeID!='none'" class="search-card">
+  <mat-card-title>{{this.sd.focusedNodeID}}</mat-card-title>
+  <mat-card-content>
+    <mat-card-subtitle *ngIf="sd.focusedNode">{{this.sd.focusedNode.category}}</mat-card-subtitle>
+
+    <button mat-stroked-button color="warn" (click)="onTargetNodeChanged()">Clear</button>
+    <br/>
+    <mat-slider min="1" max="5" step="1" [(ngModel)]="degrees" tickInterval="1" (change)="onNetworkFilterChanged()"></mat-slider>
+    <br/>
+    <mat-checkbox [(ngModel)]="egoNetwork" (change)="onNetworkFilterChanged()">Ego Network</mat-checkbox>
+
+
+  </mat-card-content>
+
+</mat-card>
